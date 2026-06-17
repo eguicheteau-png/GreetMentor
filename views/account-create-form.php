@@ -59,7 +59,6 @@
                     <select name="role" id="role">
                         <option value="eleve">Elève</option>
                         <option value="mentor">Mentor</option>
-                        <option value="admin">Admin</option>
                     </select>
                 </div>
 

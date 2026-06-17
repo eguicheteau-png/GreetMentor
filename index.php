@@ -26,6 +26,10 @@ switch ($url) {
         $MainController->dashboard();
         break;
 
+    case "/handle/create/account":
+        $data = $_POST;
+        $MainController->createUser($data);
+        break;
 }
 
 
