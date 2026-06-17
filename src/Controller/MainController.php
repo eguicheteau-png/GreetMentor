@@ -18,4 +18,8 @@ class MainController
     {
         require __DIR__. "/../../views/accueil.php";
     }
+
+    public function dashboard() {
+        require __DIR__."/../../views/dashboard.php";
+    }
 }

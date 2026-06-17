@@ -20,6 +20,12 @@ switch ($url) {
 
 }
 
-var_dump("oqjigsdvq");
+switch ($url) {
+    case "/dashboard":
+        $MainController->dashboard();
+        break;
+}
+
+var_dump("It's the page");
 
 
