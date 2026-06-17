@@ -16,6 +16,11 @@ class MainController
 
     public function index()
     {
-        require __DIR__. "/../../views/accueil.php";
+        require __DIR__. "/../../views/login-form.php";
+    }
+
+    public function createAccountForm()
+    {
+        require __DIR__. "/../../views/account-create-form.php";
     }
 }
