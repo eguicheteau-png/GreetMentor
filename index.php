@@ -22,6 +22,10 @@ switch ($url) {
         $MainController->createAccountForm();
         break;
 
+    case "/handle/create/account":
+        $data = $_POST;
+        $MainController->createUser($data);
+        break;
 }
 
 
