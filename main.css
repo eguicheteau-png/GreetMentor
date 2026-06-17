@@ -1,3 +1,7 @@
+* {
+    font-family: "Stack Sans Headline", sans-serif;
+}
+
 body {
     height: 100vh;
 }
@@ -46,6 +50,7 @@ a {
 
 .condition-utilisateur {
     margin-bottom: 0px;
+    font-style: italic;
 }
 
 .button-login {
