@@ -23,4 +23,8 @@ class MainController
     {
         require __DIR__. "/../../views/account-create-form.php";
     }
+
+    public function dashboard() {
+        require __DIR__."/../../views/dashboard.php";
+    }
 }

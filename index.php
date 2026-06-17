@@ -21,9 +21,12 @@ switch ($url) {
     case "/account/create/form":
         $MainController->createAccountForm();
         break;
+    
+    case "/dashboard":
+        $MainController->dashboard();
+        break;
 
 }
-
 
 
 
