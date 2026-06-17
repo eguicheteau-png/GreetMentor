@@ -14,18 +14,19 @@ $route = $_GET["route"] ?? "/";
 $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
 switch ($url) {
-    case "/":
+    case "/login":
         $MainController->index();
         break;
 
-}
-
-switch ($url) {
+    case "/account/create/form":
+        $MainController->createAccountForm();
+        break;
+    
     case "/dashboard":
         $MainController->dashboard();
         break;
+
 }
 
-var_dump("It's the page");
 
 
