@@ -24,6 +24,7 @@ class MainController
         require __DIR__. "/../../views/account-create-form.php";
     }
 
+
     public function createUser(array $data)
     {
         $firstname = trim($data["firstName"]);
@@ -55,5 +56,10 @@ class MainController
         $createdUsers = $this->repo->create($new_user);
 
         var_dump($createdUsers);
+    }
+  
+    public function dashboard() {
+        require __DIR__."/../../views/dashboard.php";
+
     }
 }
