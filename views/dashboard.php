@@ -17,5 +17,9 @@
             <img class="settings-icon" src="/public/assets/settings-icon.svg" alt="Settings">
         </div>
     </header>
+
+    <?php 
+    require "calendar.php";
+    ?>
 </body>
 </html>

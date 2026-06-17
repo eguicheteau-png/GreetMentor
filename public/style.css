@@ -1,10 +1,17 @@
+* {
+    font-family: "Stack Sans Headline", sans-serif;
+}
+
+
 header {
     display: flex;
     justify-content: space-between;
 }
 
 .logo-img {
-    width: 199px;
-    height: 199px;
+    width: 150px;
+    height: 150px;
 }
+
+
 
