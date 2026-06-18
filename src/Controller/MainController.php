@@ -14,7 +14,7 @@ class MainController
         $this->repo = $repo;
     }
 
-    public function loginForm()
+    public function index()
     {
         require __DIR__. "/../../views/accueil.php";
     }
