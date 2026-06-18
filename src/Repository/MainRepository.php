@@ -32,4 +32,26 @@ class MainRepository
         
         $result = $request->execute();
     }
+
+
+    public function readAllUsers()
+    {
+        $request = $this->pdo->query("SELECT * FROM users");
+        $results = $request->fetchAll(PDO::FETCH_ASSOC);
+
+        return $results;
+    }
+
+    public function userId($users, $data) 
+    {
+        for ($i = 0; $i < count($users); $i++) {
+                if ($users[$i]["email"] == $data["email"]) {
+                    if (password_verify($data["password"], $users[$i]["mot_de_passe"])) {
+                        return $i;
+                    }
+                }
+        }
+        return false;
+        
+    }
 }

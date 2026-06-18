@@ -14,7 +14,7 @@ class MainController
         $this->repo = $repo;
     }
 
-    public function index()
+    public function loginForm()
     {
         require __DIR__. "/../../views/accueil.php";
     }
@@ -65,6 +65,28 @@ class MainController
   
     public function dashboard() {
         require __DIR__."/../../views/dashboard.php";
+    }
 
+    public function login(array $data) {
+        $AllUsers = $this->repo->readAllUsers();
+
+        // var_dump($AllUsers);
+        $userId = $this->repo->userId($AllUsers, $data);
+
+        if ($userId == false) {
+            var_dump("nooooooooooooo");
+        } else {
+            $_SESSION["email"] = $AllUsers[$userId]["email"];
+            $_SESSION["prenom"] = $AllUsers[$userId]["prenom"];
+            $_SESSION["role"] = $AllUsers[$userId]["role"];
+            $_SESSION["langue"] = $AllUsers[$userId]["langue"];
+            $_SESSION["pays"] = $AllUsers[$userId]["pays"];
+            var_dump($_SESSION["email"]);
+            var_dump("yeaaaaaaaaaaaaa");
+        }
+    }
+
+    public function offSession() {
+        session_unset();
     }
 }
