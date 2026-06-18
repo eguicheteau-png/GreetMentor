@@ -12,120 +12,119 @@
             <h1>GreetMentor</h1>
 
             <ul>
-                <li><a href="#">Accueil</a></li>
-                <li><a href="#">À propos</a></li>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
                 <li><a href="#">Mentors</a></li>
-                <li><a href="#">Comment ça marche</a></li>
-                <li><a href="#">Ressources</a></li>
+                <li><a href="#">How It Works</a></li>
             </ul>
 
             <div>
-                <a href="#">Connexion</a>
-                <a href="#">Inscription</a>
+                <a href="/login">Log In</a>
+                <a href="#">Sign Up</a>
             </div>
         </nav>
     </header>
 
     <main>
         <section id="hero">
-            <span>Apprenez. Évoluez. Réussissez.</span>
+            <span>Learn. Grow. Succeed.</span>
 
-            <h2>Le mentorat qui transforme votre avenir</h2>
+            <h2>Mentorship That Shapes Your Future</h2>
 
             <p>
-                GreetMentor met en relation les apprenants et les professionnels
-                afin de favoriser le développement personnel et professionnel.
+                GreetMentor connects ambitious learners with experienced mentors
+                to help them achieve their goals and unlock their full potential.
             </p>
 
-            <div>
-                <a href="#">Trouver un mentor</a>
-                <a href="#">Devenir mentor</a>
-            </div>
         </section>
 
-
+     
         <section id="features">
-            <h2>Pourquoi choisir GreetMentor ?</h2>
+            <h2>Why Choose GreetMentor?</h2>
 
             <article>
-                <h3>Mentors qualifiés</h3>
-                <p>Accédez à des experts dans différents domaines.</p>
+                <h3>Expert Mentors</h3>
+                <p>Connect with experienced professionals across various industries.</p>
             </article>
 
             <article>
-                <h3>Objectifs personnalisés</h3>
-                <p>Définissez un parcours adapté à vos ambitions.</p>
+                <h3>Personalized Goals</h3>
+                <p>Create a mentorship journey tailored to your ambitions.</p>
             </article>
 
             <article>
-                <h3>Suivi continu</h3>
-                <p>Bénéficiez d'un accompagnement régulier.</p>
+                <h3>Continuous Support</h3>
+                <p>Receive ongoing guidance and actionable advice.</p>
             </article>
 
             <article>
-                <h3>Communauté active</h3>
-                <p>Échangez avec d'autres membres motivés.</p>
+                <h3>Active Community</h3>
+                <p>Join a network of motivated learners and mentors.</p>
             </article>
         </section>
 
 
         <section id="how-it-works">
-            <h2>Comment ça marche ?</h2>
+            <h2>How It Works</h2>
 
             <div>
                 <article>
-                    <h3>1. Créez votre profil</h3>
-                    <p>Présentez votre parcours et vos objectifs.</p>
+                    <h3>1. Create Your Profile</h3>
+                    <p>Tell us about your background, interests, and goals.</p>
                 </article>
 
                 <article>
-                    <h3>2. Trouvez un mentor</h3>
-                    <p>Choisissez un mentor adapté à vos besoins.</p>
+                    <h3>2. Find Your Mentor</h3>
+                    <p>Browse and connect with mentors who match your needs.</p>
                 </article>
 
                 <article>
-                    <h3>3. Progressez ensemble</h3>
-                    <p>Planifiez vos échanges et atteignez vos objectifs.</p>
+                    <h3>3. Learn and Grow</h3>
+                    <p>Schedule sessions, gain insights, and achieve your goals.</p>
                 </article>
             </div>
         </section>
 
-
+     
         <section id="stats">
-            <h2>Quelques chiffres</h2>
+            <h2>Our Impact</h2>
 
             <div>
-                <h3>5000+</h3>
-                <p>Membres actifs</p>
+                <h3>5,000+</h3>
+                <p>Active Members</p>
             </div>
 
             <div>
                 <h3>800+</h3>
-                <p>Mentors disponibles</p>
+                <p>Available Mentors</p>
             </div>
 
             <div>
                 <h3>95%</h3>
-                <p>Taux de satisfaction</p>
+                <p>Satisfaction Rate</p>
             </div>
 
             <div>
                 <h3>20+</h3>
-                <p>Pays représentés</p>
+                <p>Countries Reached</p>
             </div>
         </section>
 
 
         <section id="cta">
-            <h2>Prêt à commencer votre parcours ?</h2>
+            <h2>Ready to Start Your Growth Journey?</h2>
 
             <p>
-                Rejoignez GreetMentor dès aujourd'hui et trouvez le mentor qui vous aidera à atteindre vos objectifs.
+                Join GreetMentor today and connect with mentors who can help
+                you reach the next level.
             </p>
 
-            <a href="#">S'inscrire gratuitement</a>
+            <a href="#">Get Started for Free</a>
         </section>
     </main>
+
+
+ 
 
 </body>
 </html>
