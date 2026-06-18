@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/main.css">
     <title>GreetMentor</title>
 </head>
 <body>
@@ -20,7 +21,7 @@
 
             <div>
                 <a href="/login">Log In</a>
-                <a href="#">Sign Up</a>
+                <a href="/account/create/form">Sign Up</a>
             </div>
         </nav>
     </header>
