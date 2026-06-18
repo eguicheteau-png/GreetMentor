@@ -16,6 +16,11 @@ class MainController
 
     public function loginForm()
     {
+        require __DIR__. "/../../views/accueil.php";
+    }
+
+    public function loginForm()
+    {
         require __DIR__. "/../../views/login-form.php";
     }
 
