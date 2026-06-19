@@ -1,11 +1,18 @@
 * {
     font-family: "Stack Sans Headline", sans-serif;
+    box-sizing: border-box;
 }
 
+body {
+    margin: 0;
+    /* surtout PAS de display:flex ici */
+}
 
 header {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
 }
 
 .logo-img {
@@ -13,5 +20,21 @@ header {
     height: 150px;
 }
 
+.icon-container {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+}
 
+.user-icon, .rinbelloff-icon, .settings-icon {
+    width: 28px;
+    height: 28px;
+}
 
+.dashboard-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 1rem 2rem;
+    gap: 2rem;
+}
