@@ -14,7 +14,7 @@ class MainController
         $this->repo = $repo;
     }
 
-    public function loginForm()
+    public function index()
     {
         require __DIR__. "/../../views/accueil.php";
     }
@@ -88,5 +88,34 @@ class MainController
 
     public function offSession() {
         session_unset();
+    }
+
+    public function selectMentor() {
+        $allMentor = $this->repo->readAllMentor();
+
+        // var_dump($allMentor);
+        $currentPage = 0;
+
+        $nbrPages = count($allMentor);
+        $count = 0;
+        for ($i = 0; $i < 1; $i++) {
+            if ($nbrPages > 0) {
+                $nbrPages -= 12;
+                $count++;
+                $i -= 1;
+            }
+        }
+
+        var_dump($count);
+
+        require __DIR__. "/../../views/select-mentor.php";
+    }
+
+    public function selectMentorPages(array $data) {
+        var_dump($data["current-page"]);
+        $count = $data["count"];
+        $currentPage = $data["current-page"] + 1;
+
+        // require __DIR__. "/../../views/select-mentor.php";
     }
 }
