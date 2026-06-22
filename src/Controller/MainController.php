@@ -93,11 +93,15 @@ class MainController
     public function selectMentor() {
         $allMentor = $this->repo->readAllMentor();
 
-        // var_dump($allMentor);
-        $currentPage = 0;
+        $currentPage = 1;
+        $id = 0;
 
         $nbrPages = count($allMentor);
         $count = 0;
+        $limit = count($allMentor) - $id;
+        if ($limit > 12) {
+            $limit = 12;
+        }
         for ($i = 0; $i < 1; $i++) {
             if ($nbrPages > 0) {
                 $nbrPages -= 12;
@@ -106,16 +110,50 @@ class MainController
             }
         }
 
-        var_dump($count);
-
         require __DIR__. "/../../views/select-mentor.php";
     }
 
     public function selectMentorPages(array $data) {
-        var_dump($data["current-page"]);
+        $allMentor = $this->repo->readAllMentor();
         $count = $data["count"];
         $currentPage = $data["current-page"] + 1;
+        $id = $data["id"] + 12;
 
-        // require __DIR__. "/../../views/select-mentor.php";
+
+        $limit = count($allMentor) - $id;
+        if ($limit > 12) {
+            $limit = 12;
+        }
+
+        if ($currentPage > $count) {
+            $id -= 12;
+            $currentPage -= 1;
+            $limit += 12;
+        }
+
+        require __DIR__. "/../../views/select-mentor.php";
+    }
+
+
+    public function selectMentorPage(array $data) {
+        $allMentor = $this->repo->readAllMentor();
+        $count = $data["count"];
+        $currentPage = $data["current-page"] - 1;
+        $id = $data["id"] -12;
+
+        if ($id < 0) {
+            $id = 0;
+        }
+
+        $limit = count($allMentor) - $id;
+        if ($limit > 12) {
+            $limit = 12;
+        }
+
+        if ($currentPage < 1) {
+            $currentPage += 1;
+        }
+
+        require __DIR__. "/../../views/select-mentor.php";
     }
 }

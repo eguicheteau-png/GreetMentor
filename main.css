@@ -386,12 +386,9 @@ nav div:last-child a:last-child {
     background-color: #64748b;
     width: 100%;
     height: 60px;
-    /* background-image: url('https://cdn.fastly.steamstatic.com/store/icons/cut_arrow.svg');
-    background-image: url('https://cdn.fastly.steamstatic.com/store/icons/cut_arrow.svg'); */
-    /* background-repeat: no-repeat;
-    transform: rotate(180deg); */
     display: flex;
     justify-content: space-evenly;
+    border-radius: 16px;
 }
 
 .arrow-left-button {
@@ -443,4 +440,12 @@ nav div:last-child a:last-child {
     min-height: 160px;
     max-height: 160px;
     overflow-y: auto;
+}
+
+
+.add-mentor-button {
+    color: white;
+    background-color: #6196cf;
+    padding: 8px 16px;
+    border-radius: 16px;
 }
