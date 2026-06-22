@@ -18,8 +18,9 @@
         </div>
     </header>
 
-    <?php 
-    require "calendar.php";
-    ?>
+    <main class="dashboard-grid">
+        <?php require "notes.php"; ?>
+        <?php require "calendar.php"; ?>
+    </main>
 </body>
 </html>
