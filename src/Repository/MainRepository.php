@@ -54,4 +54,13 @@ class MainRepository
         return false;
         
     }
+
+    public function readAllMentor() {
+       $langue = $_SESSION['langue'];
+       $pays = $_SESSION['pays'];
+       $request = $this->pdo->query("SELECT * FROM users WHERE langue = '$langue' AND pays = '$pays'");
+       $result = $request->fetchAll(PDO::FETCH_ASSOC);
+
+       return $result;
+    }
 }

@@ -46,6 +46,20 @@ switch ($url) {
     case "/off/session":
         $MainController->offSession();
         break;
+
+    case "/select/mentor":
+        $MainController->selectMentor();
+        break;
+
+    case "/select/mentor/pages":
+        $data = $_POST;
+        $MainController->selectMentorPages($data);
+        break;
+
+    case "/select/mentor/page":
+        $data = $_POST;
+        $MainController->selectMentorPage($data);
+        break;
 }
 
 
