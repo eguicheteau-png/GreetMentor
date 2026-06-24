@@ -35,7 +35,12 @@ switch ($url) {
 
     case "/handle/create/account":
         $data = $_POST;
-        $MainController->createUser($data);
+        if ($data["role"] == "eleve") {
+            $MainController->createEleve($data);
+        } else {
+            $MainController->createMentor($data);
+        }
+
         break;
 
     case "/handle/login":
@@ -59,6 +64,20 @@ switch ($url) {
     case "/select/mentor/page":
         $data = $_POST;
         $MainController->selectMentorPage($data);
+        break;
+
+    case "/add/mentor/handle":
+        $id = $_GET["id"];
+        $MainController->addMentorHandle(intval($id));
+        break;
+
+    case "/chat":
+        $MainController->chat();
+        break;
+
+    case "/message/handle":
+        $data = $_POST;
+        $MainController->addMessage($data);
         break;
 }
 

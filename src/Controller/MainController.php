@@ -30,7 +30,7 @@ class MainController
     }
 
 
-    public function createUser(array $data)
+    public function createEleve(array $data)
     {
         $firstname = trim($data["firstName"]);
         $lastName = trim($data["lastName"]);
@@ -58,7 +58,42 @@ class MainController
             return;
         }
 
-        $createdUsers = $this->repo->create($new_user);
+        $createdUsers = $this->repo->createEleve($new_user);
+
+        var_dump($createdUsers);
+    }
+
+
+
+    public function createMentor(array $data)
+    {
+        $firstname = trim($data["firstName"]);
+        $lastName = trim($data["lastName"]);
+        $email = trim($data["email"]);
+        $password = trim($data["password"]);
+        $pays = trim($data["pays"]);
+        $langue = trim($data["langue"]);
+        $role = trim($data["role"]);
+        $bio = "nothing";
+
+        $new_user = new Users();
+        $new_user->setFirstName($firstname);
+        $new_user->setLastName($lastName);
+        $new_user->setEmail($email);
+        $new_user->setPassword($password);
+        $new_user->setPays($pays);
+        $new_user->setLangue($langue);
+        $new_user->setRole($role);
+        $new_user->setBio($bio);
+
+        $errors = $new_user->getErrors();
+
+        if (count($errors) > 0) {
+            require "views/account-create-form.php";
+            return;
+        }
+
+        $createdUsers = $this->repo->createMentor($new_user);
 
         var_dump($createdUsers);
     }
@@ -68,20 +103,34 @@ class MainController
     }
 
     public function login(array $data) {
-        $AllUsers = $this->repo->readAllUsers();
+        $AllEleve = $this->repo->readAllEleve();
+        $AllMentor = $this->repo->readAllMentor();
 
-        // var_dump($AllUsers);
-        $userId = $this->repo->userId($AllUsers, $data);
+        $userId = $this->repo->userId($AllEleve, $AllMentor, $data);
+
+        // var_dump($userId[0]);
 
         if ($userId == false) {
             var_dump("nooooooooooooo");
-        } else {
-            $_SESSION["email"] = $AllUsers[$userId]["email"];
-            $_SESSION["prenom"] = $AllUsers[$userId]["prenom"];
-            $_SESSION["role"] = $AllUsers[$userId]["role"];
-            $_SESSION["langue"] = $AllUsers[$userId]["langue"];
-            $_SESSION["pays"] = $AllUsers[$userId]["pays"];
+        } else if ($userId[1] == "eleve") {
+            $_SESSION["id"] = $AllEleve[$userId[0]]["id"];
+            $_SESSION["email"] = $AllEleve[$userId[0]]["email"];
+            $_SESSION["prenom"] = $AllEleve[$userId[0]]["prenom"];
+            $_SESSION["role"] = $AllEleve[$userId[0]]["role"];
+            $_SESSION["langue"] = $AllEleve[$userId[0]]["langue"];
+            $_SESSION["pays"] = $AllEleve[$userId[0]]["pays"];
             var_dump($_SESSION["email"]);
+            var_dump($_SESSION["role"]);
+            var_dump("yeaaaaaaaaaaaaa");
+        } else if ($userId[1] == "mentor") {
+            $_SESSION["id"] = $AllMentor[$userId[0]]["id"];
+            $_SESSION["email"] = $AllMentor[$userId[0]]["email"];
+            $_SESSION["prenom"] = $AllMentor[$userId[0]]["prenom"];
+            $_SESSION["role"] = $AllMentor[$userId[0]]["role"];
+            $_SESSION["langue"] = $AllMentor[$userId[0]]["langue"];
+            $_SESSION["pays"] = $AllMentor[$userId[0]]["pays"];
+            var_dump($_SESSION["email"]);
+            var_dump($_SESSION["role"]);
             var_dump("yeaaaaaaaaaaaaa");
         }
     }
@@ -92,7 +141,7 @@ class MainController
 
 
     public function selectMentor() {
-        $allMentor = $this->repo->readAllMentor();
+        $allMentor = $this->repo->readAllGoodMentor();
 
         $currentPage = 1;
         $id = 0;
@@ -115,7 +164,7 @@ class MainController
     }
 
     public function selectMentorPages(array $data) {
-        $allMentor = $this->repo->readAllMentor();
+        $allMentor = $this->repo->readAllGoodMentor();
         $count = $data["count"];
         $currentPage = $data["current-page"] + 1;
         $id = $data["id"] + 12;
@@ -137,7 +186,7 @@ class MainController
 
 
     public function selectMentorPage(array $data) {
-        $allMentor = $this->repo->readAllMentor();
+        $allMentor = $this->repo->readAllGoodMentor();
         $count = $data["count"];
         $currentPage = $data["current-page"] - 1;
         $id = $data["id"] -12;
@@ -156,6 +205,30 @@ class MainController
         }
 
         require __DIR__. "/../../views/select-mentor.php";
+    }
+
+
+    public function addMentorHandle($id) {
+        
+        var_dump($id);
+        var_dump($_SESSION["id"]);
+        $createdEleveMentor = $this->repo->createEleveMentor($id, $_SESSION["id"]);
+    }
+
+    public function chat() {
+        $allMessage = $this->repo->readAllMessage();
+
+        require __DIR__. "/../../views/chat.php";
+    }
+
+    public function addMessage($data) {
+        $allMessage = $this->repo->readAllMessage();
+        $readEleveMentor = $this->repo->readEleveMentor();
+
+        $addMessage = $this->repo->addMessage($data, $readEleveMentor);
+
+        // $MainController->chat();
+        require __DIR__. "/../../views/chat.php";
     }
 }
 
