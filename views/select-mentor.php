@@ -35,7 +35,7 @@
             </div>
 
             <p class="bio-text-card">' . $allMentor[$id]["bio"] . '</p>
-            <a class="add-mentor-button" href="">add</a>
+            <a class="add-mentor-button" href="/add/mentor/handle?id=' . $id . '">add</a>
             </div>';
             $id += 1;
         }
