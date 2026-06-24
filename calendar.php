@@ -20,28 +20,26 @@
       --radius:   14px;
     }
 
-    body {
-      font-family: 'Segoe UI', system-ui, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 2rem 1rem;
-    }
+  .calendar-wrapper {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 1rem;
+}
 
     /* ── Header ── */
     .header {
       width: 100%;
-      max-width: 900px;
+      max-width: 420px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       margin-bottom: 1.5rem;
     }
     .header h1 {
-      font-size: 1.4rem;
+      font-size: 1rem;
       font-weight: 700;
       letter-spacing: -0.5px;
       color: var(--accent2);
@@ -52,9 +50,9 @@
       border: 1px solid var(--border);
       color: var(--text);
       border-radius: 8px;
-      padding: .45rem .9rem;
+      padding: .25rem .6rem;
       cursor: pointer;
-      font-size: .9rem;
+      font-size: .75rem;
       transition: background .15s, border-color .15s;
     }
     .nav-btns button:hover { background: var(--border); }
@@ -62,22 +60,22 @@
       background: var(--accent);
       border-color: var(--accent);
       font-weight: 600;
-      padding: .45rem 1.2rem;
+      padding: .25rem .8rem;
     }
     .btn-add:hover { background: var(--accent2); border-color: var(--accent2); }
 
     /* ── Month label ── */
     #monthLabel {
-      font-size: 1.1rem;
+      font-size: .85rem;
       font-weight: 600;
-      min-width: 160px;
+      min-width: 110px;
       text-align: center;
     }
 
     /* ── Calendar grid ── */
     .calendar {
       width: 100%;
-      max-width: 900px;
+      max-width: 420px;
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius);
@@ -102,10 +100,10 @@
       grid-template-columns: repeat(7, 1fr);
     }
     .cell {
-      min-height: 100px;
+      min-height: 70px;
       border-right: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
-      padding: .5rem .4rem;
+      padding: .3rem .3rem;
       cursor: pointer;
       transition: background .12s;
       position: relative;
@@ -117,7 +115,7 @@
     .cell-day {
       font-size: .8rem;
       font-weight: 600;
-      margin-bottom: .25rem;
+      margin-bottom: .1rem;
       width: 24px;
       height: 24px;
       display: flex;
@@ -132,9 +130,9 @@
     .event-chip {
       font-size: .7rem;
       font-weight: 500;
-      padding: 2px 6px;
+      padding: 1px 4px;
       border-radius: 4px;
-      margin-bottom: 2px;
+      margin-bottom: 1px;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -267,6 +265,7 @@
 </head>
 <body>
 
+<div class="calendar-wrapper">
 <!-- ── Header ── -->
 <div class="header">
   <h1>📅 Calendrier</h1>
@@ -314,7 +313,7 @@
 
 <!-- ── Toast ── -->
 <div class="toast" id="toast"></div>
-
+</div>
 <script>
 /* ─── Config ─────────────────────────────────────── */
 const API = 'api.php';
