@@ -13,14 +13,23 @@
             <h1>GreetMentor</h1>
 
             <ul>
-                <li><a href="#">Home</a></li>
+                <li><a href="/">Home</a></li>
                 <li><a href="#">About</a></li>
-                <li><a href="#">Mentors</a></li>
+                <?php 
+                if ($_SESSION["role"] = "eleve") {
+                    if (isset($eleveMentor[0])) {
+                        echo '<li><a href="/select/mentor">Mentors</a></li>';
+                    }
+                }
+                if (isset($eleveMentor[0]) == false) {
+                    echo '<li><a href="/chat">chat</a></li>';
+                }
+                ?>
                 <li><a href="#">How It Works</a></li>
             </ul>
 
             <div>
-                <a href="/login">Log In</a>
+                <a class="login-access-accueil" href="/login">Log In</a>
                 <a href="/account/create/form">Sign Up</a>
             </div>
         </nav>

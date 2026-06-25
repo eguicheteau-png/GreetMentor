@@ -7,6 +7,30 @@
     <title>Document</title>
 </head>
 <body class="form-container">
+            <nav>
+            <h1>GreetMentor</h1>
+
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="#">About</a></li>
+                <?php 
+                if ($_SESSION["role"] = "eleve") {
+                    if (isset($eleveMentor[0])) {
+                        echo '<li><a href="/select/mentor">Mentors</a></li>';
+                    }
+                }
+                if (isset($eleveMentor[0]) == false) {
+                    echo '<li><a href="/chat">chat</a></li>';
+                }
+                ?>
+                <li><a href="#">How It Works</a></li>
+            </ul>
+
+            <div>
+                <a class="login-access-accueil" href="/login">Log In</a>
+                <a href="/account/create/form">Sign Up</a>
+            </div>
+        </nav>
     <div class="login-form-wrapper">
         <img class="login-logo" src="./img/greetmentor-logo.png" alt="">
         <form action="/handle/login" method="post">

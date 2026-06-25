@@ -16,6 +16,10 @@ class MainController
 
     public function index()
     {
+        if (isset($_SESSION["id"]) == false) {
+            $eleveMentor =  $this->repo->readEleveMentor();
+        } 
+
         require __DIR__. "/../../views/accueil.php";
     }
 
@@ -220,10 +224,11 @@ class MainController
     }
 
     public function addMessage($data) {
-        $allMessage = $this->repo->readAllMessage();
         $readEleveMentor = $this->repo->readEleveMentor();
-
         $addMessage = $this->repo->addMessage($data, $readEleveMentor);
+        $allMessage = $this->repo->readAllMessage();
+
+
 
         // $MainController->chat();
         require __DIR__. "/../../views/chat.php";
