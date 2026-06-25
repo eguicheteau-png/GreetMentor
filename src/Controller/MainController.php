@@ -16,7 +16,7 @@ class MainController
 
     public function index()
     {
-        if (isset($_SESSION["id"]) == false) {
+        if (isset($_SESSION["id"]) == true) {
             $eleveMentor =  $this->repo->readEleveMentor();
         } 
 
@@ -64,7 +64,11 @@ class MainController
 
         $createdUsers = $this->repo->createEleve($new_user);
 
-        var_dump($createdUsers);
+        if (isset($_SESSION["id"]) == true) {
+            $eleveMentor =  $this->repo->readEleveMentor();
+        } 
+
+        require __DIR__. "/../../views/accueil.php";
     }
 
 
@@ -99,7 +103,11 @@ class MainController
 
         $createdUsers = $this->repo->createMentor($new_user);
 
-        var_dump($createdUsers);
+        if (isset($_SESSION["id"]) == true) {
+            $eleveMentor =  $this->repo->readEleveMentor();
+        } 
+
+        require __DIR__. "/../../views/accueil.php";
     }
   
     public function dashboard() {
@@ -125,6 +133,7 @@ class MainController
             $_SESSION["pays"] = $AllEleve[$userId[0]]["pays"];
             var_dump($_SESSION["email"]);
             var_dump($_SESSION["role"]);
+            var_dump($AllEleve[$userId[0]]["mot_de_passe"]);
             var_dump("yeaaaaaaaaaaaaa");
         } else if ($userId[1] == "mentor") {
             $_SESSION["id"] = $AllMentor[$userId[0]]["id"];
@@ -137,6 +146,10 @@ class MainController
             var_dump($_SESSION["role"]);
             var_dump("yeaaaaaaaaaaaaa");
         }
+        
+        $allMessage = $this->repo->readAllMessage();
+
+        require __DIR__. "/../../views/chat.php";
     }
 
     public function offSession() {
@@ -217,6 +230,9 @@ class MainController
         var_dump($id);
         var_dump($_SESSION["id"]);
         $createdEleveMentor = $this->repo->createEleveMentor($id, $_SESSION["id"]);
+        $allMessage = $this->repo->readAllMessage();
+
+        require __DIR__. "/../../views/chat.php";
     }
 
     public function chat() {

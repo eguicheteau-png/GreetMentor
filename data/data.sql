@@ -30,9 +30,9 @@ CREATE TABLE mentor (
 );
 
 CREATE TABLE eleve_mentor (
+    id INT AUTO_INCREMENT PRIMARY KEY,
     id_eleve INT NOT NULL,
     id_mentor INT NOT NULL,
-    PRIMARY KEY (id_eleve, id_mentor),
     FOREIGN KEY (id_eleve) REFERENCES eleve(id),
     FOREIGN KEY (id_mentor) REFERENCES mentor(id)
 );

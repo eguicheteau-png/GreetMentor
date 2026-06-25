@@ -61,8 +61,11 @@
                     <label for="pays">Pays</label>
                     <br>
                     <select name="pays" id="pays">
-                        <option value="france">France</option>
-                        <option value="angleterre">Angleterre</option>
+                        <option value="France">France</option>
+                        <option value="Angleterre">Angleterre</option>
+                        <option value="Belgique">Belgique</option>
+                        <option value="Suisse">Suisse</option>
+                        <option value="Canada">Canada</option>
                     </select>
                 </div>
 
@@ -70,8 +73,8 @@
                     <label for="langue">Langue</label>
                     <br>
                     <select name="langue" id="langue">
-                        <option value="français">Français</option>
-                        <option value="anglais">Anglais</option>
+                        <option value="france">France</option>
+                        <option value="angleterre">Angleterre</option>
                     </select>
                 </div>
 

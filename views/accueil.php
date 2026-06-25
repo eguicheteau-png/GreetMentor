@@ -17,11 +17,11 @@
                 <li><a href="#">About</a></li>
                 <?php 
                 if ($_SESSION["role"] = "eleve") {
-                    if (isset($eleveMentor[0])) {
+                    if (isset($eleveMentor) == false) {
                         echo '<li><a href="/select/mentor">Mentors</a></li>';
                     }
                 }
-                if (isset($eleveMentor[0]) == false) {
+                if (isset($eleveMentor)) {
                     echo '<li><a href="/chat">chat</a></li>';
                 }
                 ?>

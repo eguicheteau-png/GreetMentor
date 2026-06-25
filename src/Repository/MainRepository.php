@@ -139,6 +139,7 @@ class MainRepository
             VALUES (:texte, :date, :id_mentor, :id_eleve, :origin)"
         );
 
+        var_dump($idOther);
         $request->bindValue(":texte", $data["message"]);
         $request->bindValue(":date", date("Y-m-d"));
         if ($role == "mentor") {
@@ -159,14 +160,18 @@ class MainRepository
         $request = $this->pdo->query("SELECT * FROM eleve_mentor WHERE id_eleve = '$id'");
         $results = $request->fetchAll(PDO::FETCH_ASSOC);
 
-        $result = $results[0]["id_mentor"];
-        return $result;
+        if (isset($results)) {
+            $result = $results[0]["id_mentor"];
+            return $result;
+        }
     } else if ($_SESSION["role"] == "mentor") {
         $request = $this->pdo->query("SELECT * FROM eleve_mentor WHERE id_mentor = '$id'");
         $results = $request->fetchAll(PDO::FETCH_ASSOC);
 
+        if (isset($results)) {
         $result = $results[0]["id_eleve"];
         return $result;
+        }
       }
     }
 
